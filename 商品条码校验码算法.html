@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>商品条码校验码算法 | 自娱自乐</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="附：商品条码校验码计算规则代码位置序号代码位置序号是指包括校验码在内的，由右至左的顺序号（校验码的代码位置序号为1）。 计算步骤校验码的计算步骤如下： a. 从代码位置序号2开始，所有偶数位的数字代码求和。 b. 将步骤a的和乘以3。 c. 从代码位置序号3开始，所有奇数位的数字代码求和。 d. 将步骤b与步骤c的结果相加。 e. 用大于或等于步骤d所得结果且为10最小整数倍的数减去步骤d所得结果">
+<meta name="keywords" content="java,商品条码">
+<meta property="og:type" content="website">
+<meta property="og:title" content="商品条码校验码算法">
+<meta property="og:url" content="http://hyller.oschina.io/商品条码校验码算法.html">
+<meta property="og:site_name" content="自娱自乐">
+<meta property="og:description" content="附：商品条码校验码计算规则代码位置序号代码位置序号是指包括校验码在内的，由右至左的顺序号（校验码的代码位置序号为1）。 计算步骤校验码的计算步骤如下： a. 从代码位置序号2开始，所有偶数位的数字代码求和。 b. 将步骤a的和乘以3。 c. 从代码位置序号3开始，所有奇数位的数字代码求和。 d. 将步骤b与步骤c的结果相加。 e. 用大于或等于步骤d所得结果且为10最小整数倍的数减去步骤d所得结果">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-02T08:16:29.032Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="商品条码校验码算法">
+<meta name="twitter:description" content="附：商品条码校验码计算规则代码位置序号代码位置序号是指包括校验码在内的，由右至左的顺序号（校验码的代码位置序号为1）。 计算步骤校验码的计算步骤如下： a. 从代码位置序号2开始，所有偶数位的数字代码求和。 b. 将步骤a的和乘以3。 c. 从代码位置序号3开始，所有奇数位的数字代码求和。 d. 将步骤b与步骤c的结果相加。 e. 用大于或等于步骤d所得结果且为10最小整数倍的数减去步骤d所得结果">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">自娱自乐</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">你们的问题主要在于读书不多，想得太多。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+                
+      </nav>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/商品条码校验码算法.html" class="article-date">
+  <time datetime="2016-06-22T01:10:15.000Z" itemprop="datePublished">2016-06-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      商品条码校验码算法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="附：商品条码校验码计算规则"><a href="#附：商品条码校验码计算规则" class="headerlink" title="附：商品条码校验码计算规则"></a>附：商品条码校验码计算规则</h4><h6 id="代码位置序号"><a href="#代码位置序号" class="headerlink" title="代码位置序号"></a>代码位置序号</h6><p>代码位置序号是指包括校验码在内的，由右至左的顺序号（校验码的代码位置序号为1）。</p>
+<h6 id="计算步骤"><a href="#计算步骤" class="headerlink" title="计算步骤"></a>计算步骤</h6><p>校验码的计算步骤如下：</p>
+<p>a. 从代码位置序号2开始，所有偶数位的数字代码求和。</p>
+<p>b. 将步骤a的和乘以3。</p>
+<p>c. 从代码位置序号3开始，所有奇数位的数字代码求和。</p>
+<p>d. 将步骤b与步骤c的结果相加。</p>
+<p>e. 用大于或等于步骤d所得结果且为10最小整数倍的数减去步骤d所得结果，其差即为所求校验码的值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 输入12位数字，获得带验证码的13位商品条码</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> code</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getEan13</span><span class="params">(String code)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> c2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">12</span>; i += <span class="number">2</span>) &#123;</span><br><span class="line">        c1 += code.charAt(i) - <span class="string">'0'</span>;</span><br><span class="line">        c2 += code.charAt(i + <span class="number">1</span>) - <span class="string">'0'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> cc = <span class="number">10</span> - (c1 + c2 * <span class="number">3</span>) % <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> code + cc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hyller.oschina.io/商品条码校验码算法.html" data-id="cjgovxwc9000368uvmjbyk8dv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/">undefined</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/">undefined</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pentaho/">Pentaho</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/元数据/">元数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/商品条码/">商品条码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Pentaho/" style="font-size: 10px;">Pentaho</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/元数据/" style="font-size: 10px;">元数据</a> <a href="/tags/商品条码/" style="font-size: 10px;">商品条码</a> <a href="/tags/大数据/" style="font-size: 10px;">大数据</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/20/Pentaho  Client tools/">Pentaho  Client tools</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/29/maven设置java版本/">maven设置java版本</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/22/商品条码校验码算法/">商品条码校验码算法</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/21/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 hyller<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="http://apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript">
+if (typeof jQuery == 'undefined') {
+document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
